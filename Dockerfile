@@ -18,7 +18,7 @@ ENV LC_ALL en_US.UTF-8
 WORKDIR /home/container
 
     # NodeJS
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_17.x | bash - \
     && apt update \
     && apt -y upgrade \
     && apt -y install nodejs node-gyp \
@@ -26,6 +26,7 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
     && npm install discord.js node-opus opusscript \
     && npm install sqlite3 --build-from-source \
     && npm install better-sqlite3 --build-from-source
+    && npm install mysql fs node-fetch ffmpeg md5 @discordjs/rest discord-api-types
 
 USER container
 ENV  USER container
